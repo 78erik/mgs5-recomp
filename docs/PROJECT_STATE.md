@@ -1,4 +1,4 @@
-﻿# MGS5 Recomp - Project State
+# MGS5 Recomp - Project State
 
 ## Current Phase
 Phase 0: setup & analysis
