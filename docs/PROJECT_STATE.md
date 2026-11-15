@@ -1,7 +1,7 @@
 # MGS5 Recomp - Project State
 
 ## Current Phase
-Phase 0: setup & analysis (toolchain ready, XEX analyzed)
+Phase 1: C++ code generated (XenonRecomp complete). Next: build + runtime integration.
 
 ## Target
 - Primary: Android (ARM64) via ReXGlue (proven path)
@@ -20,23 +20,29 @@ Phase 0: setup & analysis (toolchain ready, XEX analyzed)
 - Title ID 0x4B4E085E, TU11
 - PE: tpp_x360.exe; imports xam.xex/xboxkrnl.exe
 - Static libs: XMP/XAUDIO2/XMCORE/XAPOBAS
-- ANALYSIS.md updated. Function boundaries/jump tables pending disassembly tooling.
+- ANALYSIS.md updated.
 
 ## Toolchain
-- Clang 23.1.5 (G:\tools\llvm\...)
-- Ninja 1.12.1 (G:\tools\ninja)
-- XenonRecomp + XenonAnalyse built (G:\tools\XenonRecomp)
-- XenonAnalyse: no jump tables found (game-specific detection)
-- ReXGlue SDK cloned (G:\tools\rexglue-sdk) — submodules incomplete
+- Clang 23.1.5, Ninja 1.12.1, XenonRecomp + XenonAnalyse built
+- Ghidra 12.1.4 + Xenon360 extension (register addresses found)
+- ReXGlue SDK cloned (submodules partially complete)
 
 ## XenonRecomp Run
-- Config: mgs5_recomp.toml (relative paths)
-- Status: BLOCKED — register save/restore + setjmp/longjmp addresses unknown
-- Need: find these addresses in decompressed binary (Ghidra/Xenia)
-- Without them, XenonRecomp cannot generate C++ code.
+- Config: mgs5_recomp.toml
+- Status: ✅ COMPLETE — 186,799 functions recompiled → 734 files (605 MB) in generated/mgs5/
+- Register addresses: restgprlr_14=0x83C082A0, savegprlr_14=0x83C08250, restfpr_14=0x83C09A8C, savefpr_14=0x83C09A40, restvmx_14=0x83C0CBF8, savevmx_14=0x83C0C960, restvmx_64=0x83C0CC8C, savevmx_64=0x83C0C9F4
+- Warnings: unrecognized instructions (lfsu, subfze, sthu) — non-fatal
+- Image dumped: mgs5_image.bin (38MB, base 0x82000000)
 
 ## Resolved Addresses
-(none yet)
+- restgprlr_14 = 0x83C082A0
+- savegprlr_14 = 0x83C08250
+- restfpr_14 = 0x83C09A8C
+- savefpr_14 = 0x83C09A40
+- restvmx_14 = 0x83C0CBF8
+- savevmx_14 = 0x83C0C960
+- restvmx_64 = 0x83C0CC8C
+- savevmx_64 = 0x83C0C9F4
 
 ## HLE Modules
 (see docs/HLE_STATUS.md)
