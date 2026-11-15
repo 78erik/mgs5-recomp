@@ -1,0 +1,20 @@
+# Game files (proprietary - never commit)
+game/
+*.xex
+*.xexp
+*.iso
+*.stfs
+
+# Generated binaries / images
+mgs5_image.bin
+generated/
+
+# Scratchpad scripts
+scratchpad_*.py
+
+# Toolchain (local)
+tools/
+
+# OS
+.DS_Store
+Thumbs.db

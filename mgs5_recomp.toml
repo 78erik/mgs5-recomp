@@ -1,0 +1,29 @@
+# MGS5: The Phantom Pain (Xbox 360) - XenonRecomp config
+# Target: ARM64 (Android primary, Switch secondary)
+
+[main]
+file_path = "game/Metal Gear Solid V The Phantom Pain/Metal Gear Solid V The Phantom Pain/Default.xex"
+out_directory_path = "generated/mgs5"
+switch_table_file_path = "docs/mgs5_switch_tables.toml"
+
+# Optimizations (enable after successful boot)
+skip_lr = false
+skip_msr = false
+ctr_as_local = false
+xer_as_local = false
+reserved_as_local = false
+cr_as_local = false
+non_argument_as_local = false
+non_volatile_as_local = false
+
+# TODO: find register save/restore addresses in decompressed binary
+# restgprlr_14_address = 0xXXXXXXXX
+# savegprlr_14_address = 0xXXXXXXXX
+# restfpr_14_address = 0xXXXXXXXX
+# savefpr_14_address = 0xXXXXXXXX
+# restvmx_14_address = 0xXXXXXXXX
+# savevmx_14_address = 0xXXXXXXXX
+# restvmx_64_address = 0xXXXXXXXX
+# savevmx_64_address = 0xXXXXXXXX
+# longjmp_address = 0xXXXXXXXX
+# setjmp_address = 0xXXXXXXXX
